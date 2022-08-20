@@ -1,0 +1,22 @@
+.socials__buttons{
+    width: 100%;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #ffff;
+    border: none;
+    outline: none;
+    margin-bottom: 15px;
+    img{
+        position: absolute;
+        height: 36px;
+        width: 36px;
+        left: 4px;
+    }
+    p{
+        margin: auto;
+
+    }
+}
