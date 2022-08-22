@@ -3,6 +3,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import "./Home.scss";
 import login from "../../assets/icons8-password.gif";
 import video from "../../assets/icons8-film-reel.gif";
+import date from "../../assets/icons8-calendar.gif";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
@@ -49,9 +50,9 @@ const Home = () => {
             >
               <Card.Body>
                 <div className="card__content">
-                  <img src={login} alt="" />
+                  <img src={date} alt="" />
                   <br />
-                  <h1>Login</h1>
+                  <h1>Date</h1>
                 </div>
               </Card.Body>
             </Card>

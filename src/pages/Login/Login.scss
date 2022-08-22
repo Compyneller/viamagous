@@ -121,6 +121,28 @@
                     text-align: center;
                 }
             }
+            .email__input{
+                width: 100%;
+                position: relative;
+            }
+            .login__error{
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                bottom: 15px;
+                left: 0;
+                img{
+                    width: 16px;
+                    height: 16px;
+                    margin: auto 0;
+                }
+                p{
+                    color: #EE2D6E;
+                    font-size: 13px;
+                    margin: auto 10px;
+                }
+            }
 
         }
     }

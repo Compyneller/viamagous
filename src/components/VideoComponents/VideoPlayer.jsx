@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { Container } from "react-bootstrap";
+import React, { useContext } from "react";
 import ReactPlayer from "react-player";
 import { VideoSource } from "../../context/VideoContext";
 
