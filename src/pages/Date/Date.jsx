@@ -1,66 +1,51 @@
 import React, { useState } from "react";
-import { InputGroup, Form, Container, Row, Col } from "react-bootstrap";
+import { InputGroup, Form, Container, Row, Col, Button } from "react-bootstrap";
 const Date = () => {
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
-  const [duration, setDuration] = useState("");
+  const [result, setResult] = useState("Ex. 10 Days");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const diff = new window.Date(fromDate) - new window.Date(toDate);
+    const diffTime = Math.abs(diff);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    setResult(diffDays + " " + "days");
+  };
 
   return (
     <Container
       className="d-flex flex-column align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
-      <Row className="g-3">
-        <Col sm={12} lg={4}>
-          <InputGroup>
+      <div className="w-50 ">
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3 w-100" controlId="formBasicEmail">
+            <Form.Label>From Date</Form.Label>
             <Form.Control
-              placeholder="Username"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              type="datetime-local"
+              type="date"
+              placeholder="Enter From Date"
               value={fromDate}
               onChange={(e) => setFromDate(e.target.value)}
             />
-          </InputGroup>
-        </Col>
-        <Col sm={12} lg={4}>
-          <InputGroup>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>To Date</Form.Label>
             <Form.Control
-              placeholder="Duration"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              type="text"
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-            />
-          </InputGroup>
-        </Col>
-        <Col sm={12} lg={4}>
-          <InputGroup>
-            <Form.Control
-              placeholder="Username"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-              type="datetime-local"
+              type="date"
+              placeholder="Enter email"
               value={toDate}
               onChange={(e) => setToDate(e.target.value)}
             />
-          </InputGroup>
-        </Col>
-      </Row>
-      <br />
-      <br />
-      <Row className="g-3">
-        <Col sm={12} lg={4}>
-          From : {fromDate}
-        </Col>
-        <Col sm={12} lg={4}>
-          Duration : {duration}
-        </Col>
-        <Col sm={12} lg={4}>
-          to : {fromDate + duration}
-        </Col>
-      </Row>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Result</Form.Label>
+            <Form.Control type="number" disabled placeholder={result} />
+          </Form.Group>
+          <Button variant="outline-primary" className="w-100" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
     </Container>
   );
 };
